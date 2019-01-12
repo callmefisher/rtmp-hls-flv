@@ -36,7 +36,7 @@ zlib-dev
 RUN cd /tmp && \
 wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
 tar zxf nginx-${NGINX_VERSION}.tar.gz && \
-rm nginx-${NGINX_VERSION}.tar.gz
+rm nginx-${NGINX_VERSION}.tar.gz && find /* -name "nginx-http-flv-module" -type d
 
 COPY . /tmp/nginx-http-flv-module
 

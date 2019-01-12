@@ -5,7 +5,7 @@
 FROM alpine:3.4
 LABEL author Yanji Xia <xiayanjiji@gmail.com>
 
-ENV NGINX_VERSION 1.1/3.9
+ENV NGINX_VERSION 1.13.9
 ENV FFMPEG_VERSION 3.4.2
 
 EXPOSE 1935

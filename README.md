@@ -1,8 +1,5 @@
 [![](https://img.shields.io/badge/author-XiaYanji-brightgreen.svg)](https://github.com/callmefisher/rtmp-hls-flv)
 [![V](https://img.shields.io/badge/version-v1.0.0-ff69b4.svg)](https://github.com/callmefisher/rtmp-hls-flv)
-<div style='display: none'>
-[![Build Status](https://travis-ci.org/callmefisher/bak_basic.svg?branch=master)]()
-</div>
 
 # rtmp-hls-flv
 rtmp推流, 三种方式拉流

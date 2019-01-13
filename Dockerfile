@@ -1,7 +1,3 @@
-#FROM mycujoo/nginx-http-flv-module
-#RUN mkdir -p /data/hls && mkdir -p /data/dash
-#COPY nginx.conf /opt/nginx/nginx.conf
-
 FROM alpine:3.4
 LABEL author Yanji Xia <xiayanjiji@gmail.com>
 
@@ -36,9 +32,9 @@ zlib-dev
 RUN cd /tmp && \
 wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
 tar zxf nginx-${NGINX_VERSION}.tar.gz && \
-rm nginx-${NGINX_VERSION}.tar.gz && find /* -name "nginx-http-flv-module" -type d
+rm nginx-${NGINX_VERSION}.tar.gz
 
-COPY . /tmp/nginx-http-flv-module
+COPY ./nginx-http-flv-module  /tmp/nginx-http-flv-module
 
 # Compile nginx with nginx-http-flv module.
 RUN cd /tmp/nginx-${NGINX_VERSION} && \
@@ -54,10 +50,11 @@ cd /tmp/nginx-${NGINX_VERSION} && make && make install
 
 # Add NGINX config and static files.
 ADD nginx.conf /opt/nginx/nginx.conf
-ADD static /www/static
+#ADD static /www/static
 
 RUN mkdir -p /var/log/nginx \
 && ln -sf /dev/stdout /var/log/nginx/access.log \
-&& ln -sf /dev/stderr /var/log/nginx/error.log
+&& ln -sf /dev/stderr /var/log/nginx/error.log && cd /
+ADD nginx.conf /opt/nginx/nginx.conf
 
 CMD ["/opt/nginx/sbin/nginx"]
